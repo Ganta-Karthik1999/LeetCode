@@ -1,0 +1,360 @@
+Did not solve
+Number of Island -- BFS and  DFS
+Building H2O ->> semaphore
+
+Sorting Algorithms:
+
+
+In-Place Sorting Algorithms
+Algorithm	                Time Complexity                             Space
+
+Bubble Sort	                    O(n²)	                                O(1)	   
+Selection Sort	                O(n²)	                                O(1)
+Insertion Sort	                O(n²)	                                O(1)
+Quick Sort	                    O(n log n)	                            O(1)*
+Heap Sort	                    O(n log n)	                            O(1)
+Shell Sort	                   ~O(n log n)	                            O(1)
+Cycle Sort	                    O(n²)	                                O(1)	
+
+
+
+| Algorithm         | Time Complexity | Extra Space | Stable | Notes                       |
+| ----------------- | --------------- | ----------- | ------ | --------------------------- |
+| **Merge Sort**    | O(n log n)      | O(n)        | ✅ Yes  | Very predictable            |
+| **Counting Sort** | O(n + k)        | O(k)        | ✅ Yes  | Integers only               |
+| **Radix Sort**    | O(nk)           | O(n + k)    | ✅ Yes  | Used in DSP/data processing |
+| **Bucket Sort**   | O(n + k)        | O(n)        | ✅ Yes  | Uniform distribution        |
+| **Tim Sort**      | O(n log n)      | O(n)        | ✅ Yes  | Python / Java default       |
+| **External Sort** | —               | Huge        | —      | Used for files              |
+
+
+Congratulations, Karthik — this is a **strong match** for your background, and the interview format is very typical for **Tesla Body Controls Firmware**. The fact that it’s **1 hour + live C coding** means the coding round is the highest risk area, so we’ll bias heavily toward that.
+
+I’ll give you:
+
+1. **What Tesla *actually* tests for this role**
+2. **A prioritized topic list (based on real Body Controls interviews + your resume)**
+3. **A tight 2-day interview prep plan (hour-by-hour)**
+4. **Exact C coding patterns you must be fluent with**
+5. **How to align your resume answers to Tesla expectations**
+
+---
+
+## Context: What This Interview Really Is
+
+You’re interviewing for **Tesla – Body Controls Firmware**.
+
+This interview typically evaluates **4 things**:
+
+1. **Can you write correct C under pressure? (MOST IMPORTANT)**
+2. Do you understand **bare-metal / RTOS embedded systems**
+3. Can you reason about **hardware + firmware together**
+4. Can you explain **design trade-offs** clearly
+
+They do **NOT** expect:
+
+* LeetCode hard
+* Fancy C++ STL
+* Linux kernel internals
+
+They **DO** expect:
+
+* Clean, defensive **embedded-style C**
+* Correct memory handling
+* Edge cases
+* Real-time thinking
+
+---
+
+# 1️⃣ Topics You MUST Prepare (Internet + Tesla Interview Patterns)
+
+### 🔥 Tier 1 — MUST MASTER (Coding Round Killers)
+
+These decide pass/fail.
+
+#### C Language (Embedded Level)
+
+* Pointers vs arrays
+* Pointer arithmetic
+* `const` correctness (`const int *p` vs `int *const p`)
+* `volatile` (registers, ISR variables)
+* Stack vs heap
+* Struct alignment & padding
+* Bitwise operations
+* `sizeof` pitfalls
+* Endianness
+* Function pointers (basic)
+* Static vs global vs local variables
+
+#### Memory & Safety
+
+* `malloc/free` correctness
+* Memory leaks
+* Buffer overflow prevention
+* Dangling pointers
+* Shallow vs deep copy
+* Why dynamic allocation is risky in embedded
+
+#### Data Structures in C (NO STL)
+
+* Singly linked list (create, insert, delete)
+* Stack (array + linked list)
+* Queue (circular buffer — VERY IMPORTANT)
+* Ring buffer (common Tesla question)
+
+#### Algorithms (Embedded-Friendly)
+
+* Reverse linked list
+* Detect loop in linked list
+* String parsing
+* Tokenization
+* State machine implementation
+* Array manipulation
+* Searching and counting problems
+
+---
+
+### 🔥 Tier 2 — VERY LIKELY Questions
+
+#### Embedded Systems
+
+* Bare-metal vs RTOS
+* Interrupts vs polling
+* ISR rules (what you can’t do)
+* Race conditions
+* Critical sections
+* Mutex vs semaphore
+* Task scheduling basics
+* Priority inversion
+
+#### Hardware + Firmware
+
+* GPIO configuration
+* Debouncing (buttons, switches)
+* Timers & watchdogs
+* ADC basics
+* PWM basics
+* Reading schematics at a high level
+
+#### Communication
+
+* UART / I2C / SPI (tradeoffs)
+* CAN & CAN-FD (you’re strong here — use it)
+* Error handling strategies
+
+#### MISRA-C
+
+* Why it exists
+* Example rule violations
+* Tradeoff vs readability
+
+---
+
+### 🧠 Tier 3 — Design / Behavioral (Conversation Part)
+
+* How you debug firmware
+* How you handle production bugs
+* Safety-critical thinking
+* Design tradeoffs (latency vs reliability)
+* Ownership from prototype → production
+
+---
+
+# 2️⃣ How Your Resume Will Be Used Against You
+
+Your resume screams **STRONG EMBEDDED CANDIDATE**.
+
+They will likely ask about:
+
+* **STM32 + MISRA-C**
+* **Watchdog design**
+* **FSM automation**
+* **CAN-FD reliability**
+* **Bring-up & debugging**
+* **RTOS vs bare-metal**
+* **Noise immunity (CAN vs UART)**
+
+You’re expected to **defend your design decisions**, not just describe them.
+
+---
+
+# 3️⃣ 2-Day High-Intensity Interview Plan (Coding-Focused)
+
+## 🟦 DAY 1 — C CODING DOMINANCE (≈ 8–9 hours)
+
+### ⏰ Hour 1–2: C Fundamentals (NO SKIPPING)
+
+* Pointer vs array
+* `sizeof(char*)` vs `strlen`
+* `const` correctness
+* Stack vs heap diagrams
+* `volatile` (ISR & hardware registers)
+
+👉 Practice:
+
+```c
+void foo(const int *a, int *const b);
+```
+
+Explain **exactly** what this means.
+
+---
+
+### ⏰ Hour 3–4: Data Structures in C
+
+You must write these **from memory**:
+
+* Linked list (insert, delete, reverse)
+* Stack using array
+* Stack using linked list
+* Queue using circular buffer
+
+👉 Tesla LOVES circular buffers.
+
+```c
+typedef struct {
+    int buf[SIZE];
+    int head;
+    int tail;
+    int count;
+} Queue;
+```
+
+---
+
+### ⏰ Hour 5–6: Coding Interview Patterns (CoderPad)
+
+Practice **without IDE autocomplete**.
+
+Common Tesla-style prompts:
+
+* Reverse a linked list
+* Remove duplicates from array
+* Count frequency of characters
+* Implement a finite state machine
+* Parse a command string
+* Detect memory bug in code
+* Fix race condition logic
+
+Focus on:
+
+* Edge cases
+* NULL checks
+* Defensive coding
+
+---
+
+### ⏰ Hour 7–8: Embedded-Specific Coding
+
+* ISR-safe code
+* Ring buffer for UART RX
+* Watchdog refresh logic
+* GPIO debouncing
+* Timeout-based logic
+
+Example:
+
+> “Design a button handler that detects short press vs long press”
+
+---
+
+### ⏰ Hour 9 (Optional): Self-Review
+
+* Explain your code **out loud**
+* Pretend interviewer interrupts you
+* Practice calm narration
+
+---
+
+## 🟩 DAY 2 — SYSTEMS + MOCK INTERVIEW (≈ 7–8 hours)
+
+### ⏰ Hour 1–2: RTOS & Concurrency
+
+* Task vs ISR
+* Mutex vs semaphore
+* Priority inversion
+* When NOT to use RTOS
+* Shared resource protection
+
+---
+
+### ⏰ Hour 3–4: Hardware + Debugging
+
+* GPIO registers (conceptually)
+* Pull-ups / pull-downs
+* Debouncing strategies
+* Using scope & logic analyzer
+* Debugging deadlocks
+
+---
+
+### ⏰ Hour 5: MISRA-C & Safety
+
+Be ready to answer:
+
+* Why MISRA?
+* Example rule you violated & fixed
+* Tradeoffs vs performance
+
+---
+
+### ⏰ Hour 6–7: Mock Interview (CRITICAL)
+
+Simulate:
+
+* 30 min coding
+* 15 min explanation
+* 15 min design discussion
+
+Rules:
+
+* No Googling
+* Write clean C
+* Explain decisions
+* Handle edge cases verbally
+
+---
+
+### ⏰ Hour 8: Tesla-Specific Alignment
+
+Prepare STAR stories for:
+
+* Firmware bug in production
+* Hardware failure
+* Performance tradeoff
+* Safety-critical decision
+
+---
+
+# 4️⃣ How to Survive the CoderPad Coding Round
+
+**Tesla Interviewer Mindset**
+
+> “Can I trust this person to write firmware that won’t brick 1M vehicles?”
+
+So:
+
+* Check NULL
+* Avoid magic numbers
+* Use meaningful variable names
+* Explain assumptions
+* Don’t rush — think aloud
+
+If stuck:
+
+> “I want to clarify assumptions before coding.”
+
+This is **GOOD**, not bad.
+
+---
+
+# 5️⃣ What I Recommend Next (Very Important)
+
+If you want, next I can:
+
+1. **Run a Tesla-style mock CoderPad interview**
+2. **Give you 10 must-solve C problems (exact difficulty)**
+3. **Convert your resume into perfect Tesla interview answers**
+4. **Give you a 30-minute emergency revision plan (night before)**
+
+Just tell me what you want to do next.
