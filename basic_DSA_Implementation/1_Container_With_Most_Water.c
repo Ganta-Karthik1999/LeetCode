@@ -60,7 +60,7 @@ int height[] = {1,8,6,2,5,4,8,3,7};
 
 MaxArea(height,9);
 
-  
+          printf("%d",MaxArea(height,9));
 
   return 0;
 }
